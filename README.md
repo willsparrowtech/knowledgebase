@@ -1,6 +1,9 @@
 # Data Analytics
 
 ```bash
+
+# https://medium.com/@avabhyankar22/using-colima-to-run-docker-and-kubernetes-locally-on-a-mac-5d8e0a13e1f
+# https://github.com/abiosoft/colima
 brew install colima
 brew install qemu
 colima start --profile amd --arch amd
@@ -8,24 +11,19 @@ colima start --profile amd --arch amd
 
 
 
-limactl create --name=colima template://default # Creating an instance "colima" Proceed with the current configuration
-
-colima start --network-address --arch aarch64 --memory 4 --disk 60 --vm-type=vz
-
-colima status
-
-
-
-
 # Stop any running instances
 colima stop
 colima delete
+sudo rm -f /private/var/run/docker.sock # Remove the socket file if it exists
+rm -rf ~/.lima/colima # Clean up Lima directory
 
-# Remove the socket file if it exists
-sudo rm -f /private/var/run/docker.sock
 
-# Clean up Lima directory
-rm -rf ~/.lima/colima
+limactl create --name=colima template://default # Creating an instance "colima" Proceed with the current configuration
+colima start --network-address --arch aarch64 --memory 4 --disk 60 --vm-type=vz
+
+colima start --arch aarch64 --memory 8 --disk 100 --vm-type=vz --network-address --mount-type=virtiofs
+
+colima status
 ```
 
 Step 2: Follow Localstack Getting Started Doc
