@@ -1,5 +1,8 @@
 # Ansible: Agentless Infrastructure Automation
 
+- https://github.com/iam-veeramalla/ansible-zero-to-hero
+- https://www.youtube.com/playlist?list=PLdpzxOOAlwvLxd5nmtmORCmhD5jkrNbuE
+
 ## Why Ansible Was Created
 
 Managing infrastructure becomes increasingly complex as organizations scale across multiple machines and operating systems. Let's examine the evolution of configuration management tools and how Ansible addresses these challenges.
