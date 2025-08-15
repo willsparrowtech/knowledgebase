@@ -49,6 +49,65 @@ my_web_server/
 └── vars/         ← Variables and their values
 ```
 
+## Playbook vs Role
+
+```mermaid
+graph TB
+    subgraph "PLAYBOOK APPROACH"
+        A[Single Playbook File] --> B[All Tasks Mixed Together]
+        B --> C[Hard to Reuse]
+        B --> D[Difficult to Share]
+        B --> E[Everything in One Place]
+    end
+    
+    subgraph "ROLE APPROACH"
+        F[Role: nginx] --> G[Organized Structure]
+        H[Role: mysql] --> G
+        I[Role: docker] --> G
+        
+        G --> J[Easy to Reuse]
+        G --> K[Simple to Share]
+        G --> L[Clean Separation]
+        G --> M[Standardized Format]
+        
+        N[Playbook Using Roles] --> F
+        N --> H
+        N --> I
+    end
+    
+    style A fill:#ffcdd2
+    style B fill:#ffcdd2
+    style F fill:#c8e6c9
+    style H fill:#c8e6c9
+    style I fill:#c8e6c9
+    style N fill:#e1f5fe
+```
+
+```mermaid
+graph TD
+    A[nginx Role] --> B[tasks/main.yaml]
+    A --> C[handlers/main.yaml]
+    A --> D[templates/]
+    A --> E[vars/main.yaml]
+    A --> F[defaults/main.yaml]
+    A --> G[files/]
+    
+    B --> B1["• Install nginx<br/>• Configure nginx<br/>• Start nginx"]
+    C --> C1["• Restart nginx<br/>• Reload nginx"]
+    D --> D1["• nginx.conf.j2<br/>• site.conf.j2"]
+    E --> E1["• nginx_port: 80<br/>• worker_processes: auto"]
+    F --> F1["• Default values<br/>• Can be overridden"]
+    G --> G1["• Static config files<br/>• Scripts"]
+    
+    style A fill:#e3f2fd
+    style B fill:#e8f5e8
+    style C fill:#fff3e0
+    style D fill:#f3e5f5
+    style E fill:#e0f2f1
+    style F fill:#fce4ec
+    style G fill:#f1f8e9
+```
+
 ## Role Directory Structure Explained 🏗️
 
 ```mermaid
