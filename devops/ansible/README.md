@@ -7,6 +7,22 @@
 
 Managing infrastructure becomes increasingly complex as organizations scale across multiple machines and operating systems. Let's examine the evolution of configuration management tools and how Ansible addresses these challenges.
 
+## Core Concepts
+### Control Node: 
+The machine where you run Ansible (your laptop/workstation)
+### Managed Nodes: 
+The servers you want to control
+###  Inventory: 
+A list of your managed nodes
+###  Playbooks: 
+YAML files containing your automation tasks
+### Tasks: 
+Individual actions (install package, copy file, etc.)
+### Modules: 
+̌Pre-built functions that perform tasks
+
+---------------
+
 #### Evolution of Configuration Management
 ```mermaid
 graph TD
